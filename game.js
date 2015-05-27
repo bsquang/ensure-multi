@@ -34,12 +34,73 @@ var totals = [
   
 ];
 
+startGame()
+function startGame(){
+  
+  $(".box").fadeIn(500);
+  
+  setTimeout(function(){
+	$(".info-box[bsq-id=1]").fadeIn(1000).css("display","inline-block");
+	$(".info-box[bsq-id=2]").fadeIn(1000).css("display","inline-block");
+	$(".info-box[bsq-id=3]").fadeIn(1000).css("display","inline-block");
+	$(".info-box[bsq-id=4]").fadeIn(1000).css("display","inline-block");
+	$(".info-box[bsq-id=5]").fadeIn(1000).css("display","inline-block");
+  }, 500)
+  
+}
+
+$(".user-name").bind('keyup',function(){
+  
+  var _val = $(this).val();
+  
+  var regex=/^[a-zA-Z]+$/;
+  if (_val.match(regex))
+  {
+	  alert("Vui lòng nhập số!");	  
+  }
+  
+})
+
+$(".user-pull").bind('keyup',function(){
+  
+  var _val = $(this).val();
+  
+  var regex=/^[a-zA-Z]+$/;
+  if (_val.match(regex))
+  {
+	  alert("Vui lòng nhập số!");	  
+  }
+  
+  var bsqid = $(this).attr('bsq-id');
+  if (bsqid == 2) {
+	$("#btt-cal").fadeIn();
+  }
+  
+})
+
+
+var val_highest = 0;
+var id_highest = 0;
+function checkHIGHSCORE(index, val) {
+  
+  if (val > val_highest) {
+	id_highest = index;
+	val_highest = val;
+  }
+  
+}
+
 function bsqStringToNumber(content){
   
   return Number.parseFloat(content);
 }
+function reloadGame(){
+  location.reload();
+}
 
 function calGame(){
+  
+  $(".info-box").fadeOut();
   
   for(var i=0;i<5;i++){
     
@@ -53,7 +114,7 @@ function calGame(){
     
     if (age > 0 && sex >= 0 && pull > 0) {
       
-      
+      $(".info-box[bsq-id="+counter+"]").fadeIn();
       calBattery(counter-1);
       
       
@@ -67,6 +128,11 @@ function calGame(){
   $("#btt-cal").hide();
   $("#bgr-energy").fadeIn();
   $("#list-energy").show();
+  $("#btt-info").fadeIn();
+  
+  $(".item-energy[bsq-id="+(id_highest+1)+"]").addClass("blink-ani")
+  
+  
   
 }
 
@@ -150,9 +216,11 @@ function calBattery(idUser){
     heightBAR = heightBARIMG;
   }
   
+  checkHIGHSCORE(idUser, percent);
+  
   var targetUSER = idUser + 1;
   
-  $('.energy-bar[bsq-id='+targetUSER+']').fadeIn();
+  $('.item-energy[bsq-id='+targetUSER+']').fadeIn(1000).css("display","inline-block");
   setTimeout(function(){
     $('.energy-item[bsq-id='+targetUSER+']').height(heightBAR);
   },300)

@@ -47,14 +47,35 @@ body, html, input, textarea{
 .col-left{
   float: left;
 }
+.col-inline-block{
+  /*display: inline-block;*/
+}
 .col-20{
   width: 218px;
   height: 274px;
 }
 
+.info-box{
+  /*-webkit-transition: 1s ease all;*/
+}
+
 .animated{
   -webkit-transition: 3s ease all;
   /*-webkit-transition-delay: 2s;*/
+}
+
+@-webkit-keyframes BLINK-ANIMATION {
+  0%   { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.blink-ani{
+  -webkit-animation: BLINK-ANIMATION 1s infinite; 
+  -moz-animation:    BLINK-ANIMATION 1s infinite;
+  -o-animation:      BLINK-ANIMATION 1s infinite;
+  animation:         BLINK-ANIMATION 1s infinite; 
+  
+  -webkit-transition: 1s ease all;
 }
 
 .energy-bar{  
