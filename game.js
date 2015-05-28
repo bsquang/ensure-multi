@@ -1,3 +1,7 @@
+if (location.href.indexOf("1920") > 0) {
+  $(".wrapper").addClass("display-1920");
+}
+
 var heightBARIMG = 217;
 var totals = [
   
@@ -583,6 +587,6 @@ function drawMAP(sex_type) {
 	});
   
   divTarget.find("text").last().hide();
-  
+  divTarget.show();
   
 }

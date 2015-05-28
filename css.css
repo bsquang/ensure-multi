@@ -99,12 +99,20 @@ body, html, input, textarea{
   bottom: 8px;
   left: 11px;
 }
+.display-1920{
+  -webkit-transform: scale(1.405);
+  -webkit-transform-origin: left top;
+  overflow: hidden;
+  width: 1366px;
+  height: 768px;
+}
 
 #container-pull {
   
   float: left;
   height: 600px; 
   width: 683px;
+  display: none;
   
 }
 #container-pull2 {
@@ -112,6 +120,7 @@ body, html, input, textarea{
   float: left;
   height: 600px; 
   width: 683px;
+  display: none;
   
 }
 
