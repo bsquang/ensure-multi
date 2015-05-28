@@ -17,11 +17,13 @@
         
         <div class='box' style='background: url("resources/BGR.png"); width: 1366px; height: 768px; display: none;'>
           
-          <div class='bsq-row' style='text-align: center;padding-top: 20px;'>
+          <div id='bgr-02' style='background: url("resources/BGR02.png"); width: 1366px; height: 768px; position: absolute; z-index: 0; display:none'></div>
+          
+          <div class='bsq-row' id='header-top' style='text-align: center;padding-top: 20px;display: none; z-index: 1; position: absolute'>
             <img src='resources/HEADER.png' />
           </div>
           
-          <div class='bsq-row group' style='  width: 100%;margin: 5px auto;text-align: center;'>
+          <div class='bsq-row group' id='list-input' style='width: 100%;margin: auto;text-align: center; display: none; position: absolute; top: 80px;'>
             
             <div class='col-20 col-inline-block col-center info-box' bsq-id='1' style='position: relative; display: none;'>
               <img src='resources/BOX01.png' />
@@ -74,8 +76,11 @@
             </div>
           </div>
           
-          <div class='bsq-row' id='btt-cal' style='margin-top: 40px; text-align: center;position: absolute; display: none;'>
+          <div class='bsq-row' id='btt-cal' style='top: 380px; text-align: center;position: absolute; display: none;'>
             <img src='resources/BTT-CAL.png' onclick='calGame()' />
+          </div>
+          <div class='bsq-row' id='btt-begin' style='top: 290px; text-align: center;position: absolute; '>
+            <img src='resources/BTT-BEGIN.png' onclick='startGame()' />
           </div>
           
           <div class='bsq-row' id='bgr-energy' style='top: 308px;text-align: center;position: absolute; display: none;'>
@@ -143,11 +148,11 @@
             <img src='resources/BTT-BACK.png' onclick='backGame()' />
           </div>
           
-          <div class='bsq-row' style='text-align: center;position: absolute;  bottom: -4px;'>
+          <div class='bsq-row' style='text-align: center;position: absolute; z-index: 1;  bottom: -4px;'>
             <img src='resources/FOOTER.png' />
           </div>
           
-          <div style='position: absolute; right: 0; bottom: 0; width: 140px; height: 80px;' onclick='reloadGame()'></div>
+          <div style='position: absolute; right: 0; bottom: 0; width: 140px; height: 80px; z-index: 999;' onclick='reloadGame()'></div>
           
         </div>
         

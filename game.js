@@ -34,17 +34,24 @@ var totals = [
   
 ];
 
-startGame()
+$(".box").fadeIn(500);
 function startGame(){
   
-  $(".box").fadeIn(500);
+  $("#btt-begin").hide();
   
   setTimeout(function(){
+	
+	$("#bgr-02").fadeIn();
+	
+	$("#list-input").show();
+	$("#header-top").fadeIn();
+	
 	$(".info-box[bsq-id=1]").fadeIn(1000).css("display","inline-block");
 	$(".info-box[bsq-id=2]").fadeIn(1000).css("display","inline-block");
 	$(".info-box[bsq-id=3]").fadeIn(1000).css("display","inline-block");
 	$(".info-box[bsq-id=4]").fadeIn(1000).css("display","inline-block");
 	$(".info-box[bsq-id=5]").fadeIn(1000).css("display","inline-block");
+	
   }, 500)
   
 }
@@ -268,6 +275,7 @@ function backGame() {
   $("#info-panel").hide();  
   $("#btt-info").show();
   $("#btt-back").hide();
+  $("#header-top").show();
 }
 
 var bMapCal = false;
@@ -308,6 +316,7 @@ function showMap(){
   $("#info-panel").show();  
   $("#btt-info").hide();
   $("#btt-back").show();
+  $("#header-top").hide();
 }
 function drawMAP(sex_type) {
   
