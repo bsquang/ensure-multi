@@ -130,8 +130,17 @@
             </div>
           </div>
           
-          <div class='bsq-row' id='btt-info' style='position: absolute;bottom: 110px;text-align: right;padding-right: 150px; display: none'>
-            <img src='resources/BTT-INFO.png' />
+          <div id='info-panel' style='position: absolute; left: 0; top: 0; width: 1366px; height: 768px; background: white; display: none;'>
+            <div id="container-pull"></div>
+            <div id="container-pull2"></div>
+          </div>
+          
+          
+          <div class='bsq-row' id='btt-info' style='position: absolute;bottom: 110px;text-align: right;padding-right: 150px; display: none; z-index: 99'>
+            <img src='resources/BTT-INFO.png' onclick='showMap()' />
+          </div>
+          <div class='bsq-row' id='btt-back' style='position: absolute;bottom: 110px;text-align: right;padding-right: 150px; display: none; z-index: 99'>
+            <img src='resources/BTT-BACK.png' onclick='backGame()' />
           </div>
           
           <div class='bsq-row' style='text-align: center;position: absolute;  bottom: -4px;'>
@@ -145,6 +154,11 @@
       </div>
       
       <script src='jquery.js?89'></script>
+      
+      <script src="resources/highcharts/highcharts.js"></script>
+      <script src="resources/highcharts/highcharts-3d.js"></script>
+      <script src="resources/highcharts/exporting.js"></script>    
+      
       <script src='game.js?89'></script>
       
     </body>
