@@ -213,6 +213,11 @@ function calBattery(idUser){
           
       }
   }
+  
+  
+  
+  
+  
     
   var weaks_male = [12.6,19.4,28.5,32.6,35.7,36.8,37.7,36.0,35.8,35.5,34.7,32.9,30.7,30.2,28.2,21.3];    
   var strongs_male = [22.4,31.2,44.3,52.4,55.5,56.6,57.5,55.8,55.6,55.3,54.5,50.7,48.5,48.0,44.0,35.1];
@@ -260,7 +265,17 @@ function calBattery(idUser){
   
   checkHIGHSCORE(idUser, percent);
   
+  
+  
   var targetUSER = idUser + 1;
+  
+  
+  var agePULL = checkOLDAGE(currentPull,middlePULL,defaultPull, age1, currentPOS, age_temp);  
+  console.log(targetUSER+ ":" + age_temp + " " + agePULL);
+  
+  $(".info-age-real[bsq-id="+targetUSER+"]").html(age_temp);
+  $(".info-age-pull[bsq-id="+targetUSER+"]").html(agePULL);
+  
   
   $('.item-energy[bsq-id='+targetUSER+']').fadeIn(1000).css("display","inline-block");
   setTimeout(function(){
@@ -273,6 +288,85 @@ function calBattery(idUser){
   $('#percent-bar-text-0' + targetUSER).text(Math.round(percent)+"%"); 
   
   
+}
+
+function checkOLDAGE(currentPull, middlePULL, defaultPull, age1, currentPOS, age_temp) {
+  
+  var oldPOINT = 0;
+  var oldPOINTs = [];
+  
+  var lessIndex = -1;
+  var oldCalLess = 0;
+  
+  var agePull = currentPull;
+  var pull = currentPull;
+  
+  if (pull < middlePULL) {
+	
+	if (pull < defaultPull[defaultPull.length-1]) {
+	  
+	  lessIndex = defaultPull.length-1;
+	  oldPOINT = lessIndex;
+	  
+	}else{
+
+	  for (var i = 0; i < defaultPull.length; i++) {
+		  
+		  if(age1[i] > age1[currentPOS]){
+			
+			if (pull >= defaultPull[i]) {
+			  
+			  if (oldCalLess == 0) {
+				
+				oldCalLess = defaultPull[i] - pull;
+				lessIndex = i;
+				
+			  }else{
+				
+				var calLess = defaultPull[i] - pull;
+				if (calLess > oldCalLess) {
+				  lessIndex = i;
+				}
+				
+			  }
+			  
+			}
+			
+		  }
+	  }
+	
+	}
+		  
+	
+	if (lessIndex >= 0) {        
+	
+	  oldPOINT = lessIndex;
+	  for(var count=0;count<(oldPOINT);count++)
+	  {
+		oldPOINTs.push('');
+	  }
+	  oldPOINTs[i] = {
+		  y: defaultPull[oldPOINT]
+	  }
+	  
+	  	  
+	  agePull = age1[lessIndex];
+	  
+	
+	}else{
+	  
+	  
+	  agePull = age_temp;
+	}
+	
+  }
+  else{
+	
+	agePull = age_temp;
+	
+  }
+  
+  return agePull;
 }
 
 function backGame() {

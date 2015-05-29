@@ -85,7 +85,7 @@ body, html, input, textarea{
   position: relative;
   background: url("resources/COL-BGR.png");
   
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .energy-item{  
   height: 15%;
@@ -123,6 +123,15 @@ body, html, input, textarea{
   display: none;
   
 }
+
+.info-age-real {
+  font-size: 30px;
+}
+.info-age-pull {
+  font-size: 30px;
+}
+
+
 
 .group:before,
 .group:after {
